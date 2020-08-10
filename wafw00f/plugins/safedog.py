@@ -11,6 +11,9 @@ def is_waf(self):
     schemes = [
         self.matchCookie(r'^safedog\-flow\-item='),
         self.matchHeader(('Server', 'Safedog')),
+        self.matchHeader(('Server', 'WAF/2\.0')),
+        self.matchHeader(('X-Powered-By', 'WAF/2\.0')),
+        self.matchHeader(('X-Powered-By', 'Safedog')),
         self.matchContent(r'safedogsite/broswer_logo\.jpg'),
         self.matchContent(r'404\.safedog\.cn/sitedog_stat.html'),
         self.matchContent(r'404\.safedog\.cn/images/safedogsite/head\.png')
